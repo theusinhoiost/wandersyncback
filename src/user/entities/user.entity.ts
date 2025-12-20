@@ -8,15 +8,16 @@ export class User {
     name: string;
     @Column({ unique: true })
     email: string;
+    @Column({ unique: true })
+    phone: string;
     @Column()
     password: string;
     @Column({ default: false })
     forceLogout: boolean;
-    @Column({ unique: true })
-    phone: string;
     @CreateDateColumn()
     createdAt: Date;
     @UpdateDateColumn()
     updatedAt: Date;
 }
+
 
