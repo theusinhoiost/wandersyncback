@@ -1,3 +1,4 @@
+import { IsMobilePhone } from "class-validator";
 import { News } from "src/news/entities/news.entity";
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
@@ -10,6 +11,7 @@ export class User {
     @Column({ unique: true })
     email: string;
     @Column({ unique: true })
+    @IsMobilePhone("pt-BR")
     phone: string;
     @Column()
     password: string;
@@ -17,10 +19,14 @@ export class User {
     forceLogout: boolean;
     @OneToMany(() => News, (news) => news.user)
     news: News[];
+    @Column({ nullable: true })
+    avatarUrl: string;
+
     @CreateDateColumn()
     createdAt: Date;
     @UpdateDateColumn()
     updatedAt: Date;
+
 
 }
 

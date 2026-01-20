@@ -1,6 +1,6 @@
 import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { LoginDto } from "./dto/login.dto";
-import { UserService } from "src/user/user.service";
+import { UserService } from "src/users/user.service";
 import { HashingService } from "src/common/hashing/hashing.service";
 import { JwtService } from "@nestjs/jwt";
 import { JWTPayload } from "./types/jwt-payload-type";
@@ -21,10 +21,10 @@ export class AuthService {
         if (!user || !isPassword) {
             throw new UnauthorizedException('Credenciais inválidas');
         }
-        const jwtPayload : JWTPayload = { sub: user.id, email: user.email };
+        const jwtPayload: JWTPayload = { sub: user.id, email: user.email };
         const accessToken = await this.jwtService.signAsync(jwtPayload);
         user.forceLogout = false;
         await this.userService.save(user);
-        return { accessToken};
+        return { accessToken };
     }
 }

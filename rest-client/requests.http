@@ -1,0 +1,48 @@
+@baseUrl = http://localhost:3000
+@jwtToken = {{authLogin.response.body.accessToken}}
+
+###Auth login
+# @name authLogin
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "email":"luiz@gmail.com",
+    "password": "password123"
+}
+
+
+###ReadOneUser
+# @name readOneUser
+GET  {{baseUrl}}/user/123
+# Authorization: Bearer {{jwtToken}}
+
+
+###CreateUser
+# @name createUser
+POST {{baseUrl}}/user
+Content-Type: application/json
+
+{
+    "name":"Luiz",
+    "email":"luiz@gmail.com",
+    "password": "password123"
+}
+
+
+
+###UpdateUser
+# @name updateUser
+PATCH {{baseUrl}}/user/me
+Content-Type: application/json
+Authorization: Bearer {{jwtToken}}
+
+{
+    "name":"Luiz",
+    "email":"luiz1@gmail.com",
+    "password": "password123"
+}
+
+
+
+

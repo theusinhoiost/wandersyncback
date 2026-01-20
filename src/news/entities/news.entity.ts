@@ -1,4 +1,5 @@
-import { User } from "src/user/entities/user.entity";
+
+import { User } from "src/users/entities/user.entity";
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity()
@@ -11,9 +12,6 @@ export class News {
 
     @Column()
     slug: string;
-
-    @Column()
-    author: string;
 
     @Column('text')
     content: string;
@@ -32,9 +30,6 @@ export class News {
     })
     @JoinColumn({ name: 'userId' })
     user: User;
-
-    @Column()
-    userId: string;
 
     @CreateDateColumn()
     created_at: Date;

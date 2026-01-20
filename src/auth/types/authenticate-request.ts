@@ -1,5 +1,5 @@
-import { User } from "src/user/entities/user.entity";
+import { User } from "src/users/entities/user.entity";
 
-export interface AuthenticateRequest extends Request{
-    user:User;
+export interface AuthenticateRequest extends Request {
+    user: User;
 }

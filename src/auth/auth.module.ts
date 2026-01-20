@@ -1,7 +1,7 @@
 import { InternalServerErrorException, Module } from "@nestjs/common";
 import { AuthController } from "./auth.controller";
 import { AuthService } from "./auth.service";
-import { UserModule } from "src/user/user.module";
+import { UserModule } from "src/users/user.module";
 import { JwtModule } from "@nestjs/jwt";
 import { CommonModule } from "src/common/common.module";
 import { JwtStrategy } from "./strategies/jwt.strategy";
@@ -25,6 +25,6 @@ import { JwtStrategy } from "./strategies/jwt.strategy";
     }), CommonModule, UserModule],
     exports: [],
     controllers: [AuthController],
-    providers: [AuthService,JwtStrategy],
+    providers: [AuthService, JwtStrategy],
 })
 export class AuthModule { }

@@ -6,7 +6,7 @@ import { UserService } from './user.service';
 import { JwtAuthGuard } from 'src/auth/guards/jwt.auth.guard';
 import * as authenticateRequest from 'src/auth/types/authenticate-request';
 
-@Controller('user')
+@Controller('users')
 export class UserController {
     constructor(
 
